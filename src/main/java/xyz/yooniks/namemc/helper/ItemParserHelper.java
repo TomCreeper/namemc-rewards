@@ -33,7 +33,7 @@ public final class ItemParserHelper {
       stack = Integer.parseInt(split[0]);
       data = Integer.parseInt(subtype);
     } catch (NumberFormatException e) {
-      //FunnyLogger.parser("Unknown size: " + split[0]);
+      FunnyLogger.parser("Unknown size: " + split[0]);
       stack = 1;
       data = 0;
     }
@@ -67,13 +67,13 @@ public final class ItemParserHelper {
         try {
           level = Integer.parseInt(parse[2]);
         } catch (NumberFormatException e) {
-          //FunnyLogger.parser("Unknown enchant level: " + split[2]);
+          FunnyLogger.parser("Unknown enchant level: " + split[2]);
           level = 1;
         }
 
         Enchantment enchant = Enchantment.getByName(enchantName.toUpperCase());
         if (enchant == null) {
-          //FunnyLogger.parser("Unknown enchant: " + parse[1]);
+          FunnyLogger.parser("Unknown enchant: " + parse[1]);
         }
 
         item.addEnchant(enchant, level);
@@ -92,7 +92,7 @@ public final class ItemParserHelper {
                     Integer.parseInt(color[2])));
             item.refreshMeta();
           } catch (NumberFormatException e) {
-            //FunnyLogger.parser("Unknown armor color: " + str.split(":")[1]);
+            FunnyLogger.parser("Unknown armor color: " + str.split(":")[1]);
           }
         }
       }
